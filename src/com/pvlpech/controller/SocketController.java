@@ -48,9 +48,7 @@ public class SocketController implements PropertyChangeListener, Runnable {
                 String entry = dataInputStream.readUTF();
                 System.out.println("Request from client: "  + entry);
 
-                JSONObject jsonObject = new JSONObject();
-                jsonObject.put("operation", "get");
-                jsonObject.put("entity", "group");
+                JSONObject jsonObject = new JSONObject(entry);
 
                 loader.performAction(jsonObject);
     //                dataInputStream.close();
